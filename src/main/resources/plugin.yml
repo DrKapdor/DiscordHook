@@ -1,0 +1,8 @@
+name: DiscordHook
+version: 1.0.0-SNAPSHOT
+author: DrKapdor
+api-version: 1.16
+website: https://dev.funbaze.ru
+description: Реализация Discord API в формате плагина для Minecraft сервера
+
+main: me.drkapdor.discordhook.paper.PaperDiscordHookPlugin
