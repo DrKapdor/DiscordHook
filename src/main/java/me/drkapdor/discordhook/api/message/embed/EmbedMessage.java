@@ -3,7 +3,6 @@ package me.drkapdor.discordhook.api.message.embed;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import lombok.Builder;
-import lombok.Getter;
 import me.drkapdor.discordhook.api.message.IDiscordMessage;
 import me.drkapdor.discordhook.api.message.embed.objects.EmbedAuthor;
 import me.drkapdor.discordhook.api.message.embed.objects.EmbedField;
@@ -21,7 +20,7 @@ public class EmbedMessage implements IDiscordMessage {
     private String description;
     private long timestamp;
     private String url;
-    private int color;
+    private EmbedColor color;
     private EmbedFooter footer;
     private EmbedThumbnail thumbnail;
     private EmbedAuthor author;
@@ -40,8 +39,8 @@ public class EmbedMessage implements IDiscordMessage {
             jsonEmbedObject.addProperty("timestamp", new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ", Locale.ROOT).format(timestamp));
         if (url != null)
             jsonEmbedObject.addProperty("url", url);
-        if (color != 0)
-            jsonEmbedObject.addProperty("color", color);
+        if (color != null)
+            jsonEmbedObject.addProperty("color", color.getCode());
         if (footer != null)
             jsonEmbedObject.add("footer", footer.toJson());
         if (thumbnail != null)

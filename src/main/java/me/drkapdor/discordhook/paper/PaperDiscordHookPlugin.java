@@ -1,12 +1,7 @@
 package me.drkapdor.discordhook.paper;
 
 import me.drkapdor.discordhook.IDiscordHookPlugin;
-import me.drkapdor.discordhook.api.message.embed.EmbedMessage;
-import me.drkapdor.discordhook.api.message.embed.EmbedType;
-import me.drkapdor.discordhook.api.message.embed.objects.EmbedAuthor;
-import me.drkapdor.discordhook.api.message.embed.objects.EmbedFooter;
-import me.drkapdor.discordhook.api.message.embed.objects.EmbedThumbnail;
-import me.drkapdor.discordhook.api.webhook.DiscordHook;
+import me.drkapdor.discordhook.api.DiscordHook;
 import me.drkapdor.discordhook.shared.DiscordHookConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.ServicePriority;
@@ -23,27 +18,6 @@ public class PaperDiscordHookPlugin extends JavaPlugin implements IDiscordHookPl
     @Override
     public void onEnable() {
         init();
-        discordHook.getWebhookRegistry().forEach((id, webhook) -> {
-            EmbedMessage embedMessage = EmbedMessage.builder()
-                    .type(EmbedType.RICH)
-                    .title("Test title")
-                    .description("Text description")
-                    .timestamp(System.currentTimeMillis())
-                    .url("https://vk.com/funbaze")
-                    .author(EmbedAuthor.builder()
-                            .name("Test Author")
-                            .iconUrl("https://i.imgur.com/cH64Q86.png")
-                            .build())
-                    .thumbnail(EmbedThumbnail.builder()
-                            .url("https://i.imgur.com/cH64Q86.png")
-                            .build())
-                    .footer(EmbedFooter.builder()
-                            .text("Test footer")
-                            .iconUrl("https://i.imgur.com/cH64Q86.png")
-                            .build())
-                    .build();
-            webhook.sendMessage(embedMessage);
-        });
     }
 
     @Override

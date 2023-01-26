@@ -7,7 +7,7 @@ import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.ProxyServer;
 import me.drkapdor.discordhook.IDiscordHookPlugin;
-import me.drkapdor.discordhook.api.webhook.DiscordHook;
+import me.drkapdor.discordhook.api.DiscordHook;
 import me.drkapdor.discordhook.shared.DiscordHookConfig;
 import org.slf4j.Logger;
 
@@ -19,7 +19,7 @@ import java.util.concurrent.ExecutionException;
 @Plugin(
         id = "discordhook",
         name = "DiscordHook",
-        version = "1.0.0-SNAPSHOT",
+        version = "1.1.0-SNAPSHOT",
         url = "https://dev.funbaze.ru",
         description = "Реализация Discord API в формате плагина для сервера Minecraft",
         authors = {
@@ -73,7 +73,7 @@ public class VelocityDiscordHookPlugin implements IDiscordHookPlugin {
 
     @Override
     public DiscordHookConfig getConfiguration() {
-        return null;
+        return configuration;
     }
 
     @Override
