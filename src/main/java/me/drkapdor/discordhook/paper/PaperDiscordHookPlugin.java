@@ -27,7 +27,7 @@ public class PaperDiscordHookPlugin extends JavaPlugin implements IDiscordHookPl
         if (!configFile.exists()) {
             try {
                 configFile.createNewFile();
-                configuration = new DiscordHookConfig("");
+                configuration = new DiscordHookConfig();
                 configuration.save(configFile);
             } catch (IOException e) {
                 e.printStackTrace();

@@ -6,6 +6,7 @@ import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.ProxyServer;
+import lombok.Getter;
 import me.drkapdor.discordhook.IDiscordHookPlugin;
 import me.drkapdor.discordhook.api.DiscordHook;
 import me.drkapdor.discordhook.shared.DiscordHookConfig;
@@ -19,13 +20,14 @@ import java.util.concurrent.ExecutionException;
 @Plugin(
         id = "discordhook",
         name = "DiscordHook",
-        version = "1.1.0-SNAPSHOT",
+        version = "1.2.0-SNAPSHOT",
         url = "https://dev.funbaze.ru",
         description = "Реализация Discord API в формате плагина для сервера Minecraft",
         authors = {
                 "DrKapdor"
         }
 )
+@Getter
 public class VelocityDiscordHookPlugin implements IDiscordHookPlugin {
 
     private final ProxyServer server;
@@ -56,7 +58,7 @@ public class VelocityDiscordHookPlugin implements IDiscordHookPlugin {
         if (!configFile.exists()) {
             try {
                 configFile.createNewFile();
-                configuration = new DiscordHookConfig("");
+                configuration = new DiscordHookConfig();
                 configuration.save(configFile);
             } catch (IOException e) {
                 e.printStackTrace();
